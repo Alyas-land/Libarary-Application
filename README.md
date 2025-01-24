@@ -30,49 +30,51 @@ This project is a Library Management System built using **ASP.NET Core 8** for t
    ```bash
    git clone https://github.com/YourUsername/LibraryManagement.git
    cd LibraryManagement
+   ```
 
 2. **Configure the Database**
      - Open the appsettings.json file and update the database connection string:
-  ```
-  "ConnectionStrings": {
-  "DefaultConnection": "Server=.;Database=LibraryDB;Trusted_Connection=True;"
-}
-```
+     ```
+     "ConnectionStrings": {
+     "DefaultConnection": "Server=.;Database=LibraryDB;Trusted_Connection=True;"
+      }
+      ```
 3. Apply Migrations Run the following command in the project terminal:
    ```
    dotnet ef database update
+   ```
    
 4. Run the Application
 
 5. Open your browser and navigate to:
-```
-http://localhost:5000
-```
+   ```
+   http://localhost:5000
+   ```
 
 ## Usage
  - Once the project is running, the homepage of the Library Management System will be displayed.
  - You can add new books, manage users, and use the search functionality.
 
 ## Project Structure
-```
-LibraryManagement/
-├── Controllers/
-├── Models/
-├── Views/
-│   ├── Shared/
-│   ├── Books/
-│   ├── Users/
-├── wwwroot/
-│   ├── css/
-│   ├── js/
-│   ├── lib/ (Bootstrap)
-└── appsettings.json
-```
+   ```
+   LibraryManagement/
+   ├── Controllers/
+   ├── Models/
+   ├── Views/
+   │   ├── Shared/
+   │   ├── Books/
+   │   ├── Users/
+   ├── wwwroot/
+   │   ├── css/
+   │   ├── js/
+   │   ├── lib/ (Bootstrap)
+   └── appsettings.json
+   ```
 
 ## License
 This project is licensed under the MIT License.
 
 ## Contact
 For questions or suggestions, feel free to contact me:
-Email: a.mashayekhi90@example.com
-GitHub: YourUsername + RepositoryName
+   - Email: a.mashayekhi90@example.com
+   - GitHub: YourUsername + RepositoryName
