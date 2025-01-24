@@ -32,7 +32,7 @@ This project is a Library Management System built using **ASP.NET Core 8** for t
    cd LibraryManagement
 
 2. **Configure the Database**
-  - Open the appsettings.json file and update the database connection string:
+     - Open the appsettings.json file and update the database connection string:
   ```
   "ConnectionStrings": {
   "DefaultConnection": "Server=.;Database=LibraryDB;Trusted_Connection=True;"
@@ -49,11 +49,11 @@ This project is a Library Management System built using **ASP.NET Core 8** for t
 http://localhost:5000
 ```
 
-Usage
+## Usage
  - Once the project is running, the homepage of the Library Management System will be displayed.
  - You can add new books, manage users, and use the search functionality.
 
-Project Structure
+## Project Structure
 ```
 LibraryManagement/
 ├── Controllers/
@@ -69,10 +69,10 @@ LibraryManagement/
 └── appsettings.json
 ```
 
-License
+## License
 This project is licensed under the MIT License.
 
-Contact
+## Contact
 For questions or suggestions, feel free to contact me:
 Email: a.mashayekhi90@example.com
 GitHub: YourUsername + RepositoryName
