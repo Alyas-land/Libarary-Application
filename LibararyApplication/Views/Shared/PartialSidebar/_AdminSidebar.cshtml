@@ -1,0 +1,101 @@
+﻿@{
+    Layout = null;
+}
+
+
+<nav id="main-nav" class="main-nav clearfix tabbed">
+    <ul class="pl-0">
+        @if (ViewBag.Header == "home")
+        {
+            <li class="outer radius-2 mb-3 shadow bg-primary">
+                <a class="inner radius-2" href="custome-index.html">
+                    <div class="media align-items-center ">
+                        <div class="media-body text-left">
+                            <span class="font-weight-600 font-size-13 text-uppercase  text-muted">خانه</span>
+                        </div>
+                        <i class="material-icons text-light">home</i>
+                    </div>
+                </a>
+            </li>
+        }
+        else
+        {
+        <li class="outer radius-2 mb-3 shadow">
+            <a class="inner radius-2" asp-controller="Home" asp-action="Index">
+                <div class="media align-items-center ">
+                    <div class="media-body text-left">
+                        <span class="font-weight-600 font-size-13 text-uppercase  text-muted">خانه</span>
+                    </div>
+                    <i class="material-icons">home</i>
+                </div>
+            </a>
+        </li>
+        }
+        @if (ViewBag.Header == "usersList")
+        {
+            <li class="outer radius-2 mb-3 shadow bg-primary">
+                <a class="inner radius-2" asp-controller="Admin" asp-action="UsersList">
+                    <div class="media  align-items-center ">
+                        <div class="media-body text-left">
+                            <span class="font-weight-600 font-size-13 text-uppercase  text-muted">لیست کاربران</span>
+                        </div>
+                        <i class="material-icons text-light">book</i>
+                    </div>
+                </a>
+            </li>
+        }
+        else
+        {
+            <li class="outer radius-2 mb-3">
+                <a class="inner radius-2" asp-controller="Admin" asp-action="UsersList">
+                    <div class="media  align-items-center ">
+                        <div class="media-body text-left">
+                            <span class="font-weight-600 font-size-13 text-uppercase  text-muted">لیست کاربران</span>
+                        </div>
+                        <i class="material-icons">book</i>
+                    </div>
+                </a>
+            </li>
+        }
+        @if (ViewBag.Header == "allReserved")
+        {
+            <li class="outer radius-2 mb-3 shadow bg-primary">
+                <a class=" inner radius-2" asp-controller="Admin" asp-action="Allreserved">
+                <div class="media  align-items-center ">
+                    <div class="media-body text-left">
+                        <span class="font-weight-600 font-size-13 text-uppercase text-muted">سبد های رزو</span>
+                    </div>
+                    <i class="material-icons text-light">add_shopping_cart</i>
+                </div>
+            </a>
+            </li>
+        }
+        else
+        {
+            <li class="outer radius-2 mb-3 shadow">
+                <a class=" inner radius-2" asp-controller="Admin" asp-action="Allreserved">
+                    <div class="media  align-items-center ">
+                        <div class="media-body text-left">
+                            <span class="font-weight-600 font-size-13 text-uppercase text-muted">سبد های رزو</span>
+                        </div>
+                        <i class="material-icons">add_shopping_cart</i>
+                    </div>
+                </a>
+            </li>
+        }
+
+        
+        <li class="outer radius-2 mb-3">
+            <a class="inner radius-2 " asp-controller="Authentication" asp-action="logout">
+                <div class="media  align-items-center ">
+                    <div class="media-body text-left">
+                        <span class="font-weight-600 font-size-13 text-uppercase  text-muted">خروج</span>
+                    </div>
+                    <i class="	account_circle"></i>
+                    <i class="material-icons">	power_settings_new</i>
+                </div>
+            </a>
+        </li>
+        
+    </ul>
+</nav>

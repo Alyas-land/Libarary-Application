@@ -1,0 +1,79 @@
+﻿@model RegisterViewModel
+@{
+    ViewData["Title"] = "Register";
+    Layout = "_AuthenticationLayout";
+}
+
+
+    <div id="wrapper" class="wrapper home">
+        <!--Alternate styles for demo purposes only-->
+        <div class="blurred-content"></div>
+        <div class="container spacer-xlg">
+            <h3 class="font-weight-600 mb-5 text-center">
+                سامانه کتابخانه <mark>هکس</mark>
+            </h3>
+            @if (TempData["success"] != null)
+            {
+                <div class="alert alert-success alert-dismissible">
+                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                    <strong></strong> @TempData["success"]
+                </div>
+            }
+            @if (TempData["error"] != null)
+            {
+                <div class="alert alert-danger alert-dismissible">
+                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                    <strong>خطا!</strong> @TempData["error"]
+                </div>
+            }
+
+
+                    <div class="row justify-content-center">
+
+                        <form class="form p-5 mt-4 radius-2 shadow" method="post" asp-controller="Authentication" asp-action="Register" style="width: 50%;">
+                            <div>
+                                <h2 class="text-center mb-5 font-weight-500 text-light">فرم ثبت نام</h2>
+                            </div>
+                            <div class="outer radius-2 mb-3">
+                                <input class="inner text-center form-control  h-100 " placeholder="نام و نام‌خانوادگی" id="name" asp-for="Name" type="text">
+                                <span asp-validation-for="Name"></span>
+                            </div>
+                            <div class="outer radius-2 mb-3">
+                                <input class="inner text-center form-control  h-100 " placeholder="ایمیل" value="" id="email" asp-for="Email" type="text">
+                                <span asp-validation-for="Email"></span>
+
+                            </div>
+                            <div class="outer radius-2 mb-3">
+                                <input class="inner text-center form-control  h-100 " value="" id="compagny" asp-for="Password" placeholder="رمز‌عبور" type="password">
+                                <span asp-validation-for="Password"></span>
+
+                            </div>
+                            <div class="outer radius-2 mb-3">
+                                <input class="inner text-center form-control  h-100 " value="" id="subject" asp-for="ConfrimPassword" placeholder="تکرار رمز‌عبور" type="password">
+                                <span asp-validation-for="ConfrimPassword"></span>
+
+                            </div>
+                            <div class="row justify-content-center">
+                                <div class="mt-2 outer radius-2  text-center" style="width: max-content;">
+                                    <button type="submit" class="btn btn-outline-dark shadow text-light text-center">ساخت حساب</button>
+                                    <!-- <a class="send inner radius-2 d-block py-2 px-4 font-size-15 font-weight-500 text-center" href="#">ساخت حساب</a> -->
+                                </div>
+                            </div>
+                            <div class="mt-5">
+                                <p class="text-center">
+                            حساب کاربری دارید؟ <a asp-controller="Authentication" asp-action="Login">ورود به حساب</a>
+                                </p>
+                            </div>
+                        </form>
+
+
+                    </div>
+
+
+        </div>
+        <a class="outer scroll-to-top  scroll" href="#wrapper">
+            <div class="scroll-to-top-inner inner radius-2"><span class=" fas fa-arrow-up top-icon "></span></div>
+        </a>
+        <!-- End to the top -->
+    </div>
+    <!-- End wrapper-->

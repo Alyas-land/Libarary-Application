@@ -1,0 +1,80 @@
+﻿@model IList<LibararyApplication.Models.Book>
+@{
+    ViewData["Title"] = "AllBookForReserve";
+}
+
+@if (TempData["success"] != null)
+{
+    <div id="flashMessage" class="alert alert-success text-center">
+        @TempData["success"]
+    </div>
+}
+
+<h1 class="text-center text-bolder mt-5 mb-2">لیست کتاب ها برای رزو</h1>
+@if (Model.Count != 0)
+{
+
+
+
+    <div class="d-flex justify-content-center align-content-center">
+        <table class="table table-hover text-center" style="direction:rtl; width:auto;">
+            <thead class="thead-light text-warning">
+                <tr>
+
+                    <th scope="col">کد کتاب</th>
+                    <th scope="col">نام کتاب</th>
+                    <th scope="col">توضیحات</th>
+                    <th scope="col">موجودی کتابخانه</th>
+                    <th scope="col">جلد</th>
+                    <th scope="col">عملیات</th>
+
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr class="">
+
+                        <td class="ml-4 mr-4">@item.Id</td>
+                        <td class="ml-4 mr-4">@item.Name</td>
+                        <td class="ml-4 mr-4">@item.Description</td>
+                        @if (item.Quantity == 0 )
+                        {
+                            <td class="ml-4 mr-4 text-warning"><span>عدم موجودی کتاب</span></td>
+                        }
+                        else
+                        {
+                            <td class="ml-4 mr-4">@item.Quantity</td>
+                        }
+                        <td class="ml-4 mr-4"><img src="~/images/@(item.Id + ".jpg")" class="img-fluid " style="height:4rem; border-radius:100%" /></td>
+                        <td class="ml-4 mr-4">
+                            @if ( item.Quantity == 0)
+                            {   
+                                <span class="text-warning">امکان انتخاب وجود ندارد</span>
+                            }
+                            else
+                            {
+                            <a class="btn btn-primary" asp-controller="User" asp-action="Reserving" asp-route-bookId="@item.Id">انتخاب</a>
+                            }
+                        </td>
+                    </tr>
+
+                }
+
+
+            </tbody>
+        </table>
+    </div>
+}
+else
+{
+    <div class="d-flex justify-content-center">
+
+        <h3 class="text-danger d-block m-5">
+            !!متاسفانه کتابی یافت نشد
+        </h3>
+    </div>
+
+}
+

@@ -1,0 +1,173 @@
+﻿
+@{
+    Layout = null;
+}
+
+<nav id="main-nav" class="main-nav clearfix tabbed">
+    <ul class="pl-0">
+        @if (ViewBag.Header == "home")
+        {
+            <li class="outer radius-2 mb-3 shadow bg-primary">
+                <a class="inner radius-2" asp-controller="Home" asp-action="Index">
+                    <div class="media align-items-center ">
+                        <div class="media-body text-left">
+                            <span class="font-weight-600 font-size-13 text-uppercase  text-muted">خانه</span>
+                        </div>
+                        <i class="material-icons text-light">home</i>
+                    </div>
+                </a>
+            </li>
+        }
+        else
+        {    
+        <li class="outer radius-2 mb-3 shadow">
+            <a class="inner radius-2" asp-controller="Home" asp-action="Index">
+                <div class="media align-items-center ">
+                    <div class="media-body text-left">
+                        <span class="font-weight-600 font-size-13 text-uppercase  text-muted">خانه</span>
+                    </div>
+                    <i class="material-icons">home</i>
+                </div>
+            </a>
+        </li>
+        }
+        @if (ViewBag.Header == "AllBook")
+        {
+            <li class="outer radius-2 mb-3 bg-primary">
+                <a class="inner radius-2" asp-controller="User" asp-action="AllBooks">
+                    <div class="media  align-items-center ">
+                        <div class="media-body text-left">
+                            <span class="font-weight-600 font-size-13 text-uppercase  text-muted">لیست کتاب ها </span>
+                        </div>
+                        <i class="material-icons text-light">book</i>
+                    </div>
+                </a>
+            </li>
+        }
+        else
+        {
+            <li class="outer radius-2 mb-3">
+                <a class="inner radius-2" asp-controller="User" asp-action="AllBooks">
+                    <div class="media  align-items-center ">
+                        <div class="media-body text-left">
+                            <span class="font-weight-600 font-size-13 text-uppercase  text-muted">لیست کتاب ها </span>
+                        </div>
+                        <i class="material-icons">book</i>
+                    </div>
+                </a>
+            </li>
+        }
+
+
+        @if (ViewBag.Header == "show-reserve")
+        {
+            <li class="outer radius-2 mb-3 bg-primary">
+                <a class=" inner radius-2" asp-controller="User" asp-action="AllReservationCurrentUser">
+                    <div class="media  align-items-center ">
+                        <div class="media-body text-left">
+                            <span class="font-weight-600 font-size-13 text-uppercase text-muted">سبد های رزو</span>
+                        </div>
+                        <i class="material-icons text-light">add_shopping_cart</i>
+                    </div>
+                </a>
+            </li>
+        }
+        else
+        {
+            <li class="outer radius-2 mb-3">
+                <a class=" inner radius-2" asp-controller="User" asp-action="AllReservationCurrentUser">
+                    <div class="media  align-items-center ">
+                        <div class="media-body text-left">
+                            <span class="font-weight-600 font-size-13 text-uppercase text-muted">سبد های رزو</span>
+                        </div>
+                        <i class="material-icons">add_shopping_cart</i>
+                    </div>
+                </a>
+            </li>
+        }
+        @if (ViewBag.Header == "RecommendedSystem")
+        {
+            <li class="outer radius-2 mb-3 shadow bg-primary">
+                <a class=" inner radius-2" asp-controller="User" asp-action="RecommendedSystem">
+                    <div class="media  align-items-center ">
+                        <div class="media-body text-left">
+                            <span class="font-weight-600 font-size-13 text-uppercase  text-muted">پیشنهاد کتاب</span>
+                        </div>
+                        <i class="material-icons text-light">info</i>
+                    </div>
+                </a>
+            </li>
+        }
+        else
+        {
+            <li class="outer radius-2 mb-3 shadow">
+                <a class=" inner radius-2" asp-controller="User" asp-action="RecommendedSystem">
+                    <div class="media  align-items-center ">
+                        <div class="media-body text-left">
+                            <span class="font-weight-600 font-size-13 text-uppercase  text-muted">پیشنهاد کتاب</span>
+                        </div>
+                        <i class="material-icons">info</i>
+                    </div>
+                </a>
+            </li>
+        }
+        <li class="outer radius-2 mb-3 shadow">
+            <div class="inner radius-2">
+                <form class="header-search-form position-relative" asp-controller="User" asp-action="ResultSearch">
+                    <input type="text" placeholder="جست و جو" id="bookName" name="bookName">
+                    <input type="submit">
+                    <svg version="1.1" class="max-width-1 svg-icon search-form-icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 517 517" enable-background="new 0 0 517 517;" xml:space="preserve">
+                    <g>
+                    <g>
+                    <path d="M510.8,492.6l-128-128c-0.1-0.1-0.1-0.1-0.2-0.1c34.2-38.4,55.1-88.9,55.1-144.4
+                                                   c0-120.2-97.4-217.6-217.6-217.6S2.5,99.9,2.5,220.1s97.4,217.6,217.6,217.6c55.5,0,106-20.9,144.4-55.2c0.1,0.1,0.1,0.1,0.1,0.2
+                                                   l128,128c2.5,2.5,5.8,3.8,9.1,3.8s6.6-1.2,9.1-3.7C515.7,505.8,515.7,497.6,510.8,492.6z M220.1,412.1c-105.9,0-192-86.1-192-192
+                                                   s86.1-192,192-192s192,86.1,192,192S326,412.1,220.1,412.1z"></path>
+                                             </g>
+                                          </g>
+                                       </svg>
+                    
+                </form>
+            </div>
+        </li>
+        @if (ViewBag.Header == "account")
+        {
+            <li class="outer radius-2 mb-3 shadow bg-primary">
+                <a class="inner radius-2" asp-controller="Authentication" asp-action="Account">
+                    <div class="media  align-items-center ">
+                        <div class="media-body text-left">
+                            <span class="font-weight-600 font-size-13 text-uppercase  text-muted">حساب کاربری</span>
+                        </div>
+                        <i class="	account_circle"></i>
+                        <i class="material-icons text-light">account_circle</i>
+                    </div>
+                </a>
+            </li>
+        }
+        else
+        {
+            <li class="outer radius-2 mb-3 shadow">
+                <a class="inner radius-2" asp-controller="Authentication" asp-action="Account">
+                    <div class="media  align-items-center ">
+                        <div class="media-body text-left">
+                            <span class="font-weight-600 font-size-13 text-uppercase  text-muted">حساب کاربری</span>
+                        </div>
+                        <i class="	account_circle"></i>
+                        <i class="material-icons">account_circle</i>
+                    </div>
+                </a>
+            </li>
+        }
+        <li class="outer radius-2 mb-3">
+            <a class="inner radius-2" asp-controller="Authentication" asp-action="logout">
+                <div class="media  align-items-center ">
+                    <div class="media-body text-left">
+                        <span class="font-weight-600 font-size-13 text-uppercase  text-muted">خروج</span>
+                    </div>
+                    <i class="	account_circle"></i>
+                    <i class="material-icons">	power_settings_new</i>
+                </div>
+            </a>
+        </li>
+    </ul>
+</nav>

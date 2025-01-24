@@ -1,0 +1,64 @@
+﻿@{
+    Layout = "_AuthenticationLayout";
+}
+@model LoginViewModel
+
+@{
+    ViewData["Title"] = "login";
+    Layout = "_AuthenticationLayout";
+
+}
+
+        
+        <!--Alternate styles for demo purposes only-->
+        <div class="blurred-content"></div>
+        <div class="container spacer-xlg text-center">
+            <h3 class="font-weight-600 mb-5 text-center">
+                سامانه کتابخانه <mark>
+                    هکس
+                </mark>
+            </h3>
+            @if (TempData["success"] != null)
+            {
+                <div class="alert alert-success alert-dismissible">
+                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                    <strong></strong> @TempData["success"]
+                </div>
+            }
+            @if (TempData["error"] != null)
+            {
+                <div class="alert alert-danger alert-dismissible">
+                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                    <strong>خطا!</strong> @TempData["error"]
+                </div>
+            }
+            <div class="row justify-content-center">
+                <form class="form p-5 radius-1 shadow" method="post" asp-controller="Authentication" asp-action="Login" style="width: 40%;">
+                    <div>
+                        <h3 class="font-weight-600 mb-5 text-center">ورود به حساب کاربری</h3>
+                    </div>
+                    <div class="outer radius-2 mb-3">
+                        <input class="inner form-control text-center h-100 " placeholder="ایمیل" value="" id="email" name="email" type="text">
+                    </div>
+                    <div class="outer radius-2 mb-3">
+                        <input class="inner form-control text-center h-100 " value="" id="compagny" name="password" placeholder="رمز‌عبور" type="password">
+                    </div>
+                    <div class="row justify-content-center">
+                        <div class="outer radius-2 mt-4 text-center" style="width: max-content;">
+                            <button type="submit" class="btn btn-outline-dark shadow text-light text-center">ورود</button>
+                        </div>
+                    </div>
+                    <div class="mt-5">
+                        <p>
+                            حساب کاربری ندارید؟ <a asp-controller="Authentication" asp-action="Register">ثبت نام</a>
+                        </p>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <a class="outer scroll-to-top  scroll" href="#wrapper">
+            <div class="scroll-to-top-inner inner radius-2"><span class=" fas fa-arrow-up top-icon "></span></div>
+        </a>
+        <!-- End to the top -->
+    
+

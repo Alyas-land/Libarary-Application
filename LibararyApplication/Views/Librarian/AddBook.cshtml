@@ -1,0 +1,77 @@
+﻿@model AddBookViewModel
+@{
+    ViewData["Title"] = "AddBook";
+}
+
+@if (TempData["success"] != null)
+{
+    <div class="alert alert-success alert-dismissible">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <strong></strong> @TempData["success"]
+    </div>
+}
+@if (TempData["error"] != null)
+{
+    <div class="alert alert-danger alert-dismissible">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <strong>خطا!</strong> @TempData["error"]
+    </div>
+}
+
+
+
+<div class="row mb-5 mt-6">
+    <div class="col">
+        <h6 class="font-weight-700  mb-0 text-uppercase mb-2">افزودن کتاب</h6>
+        <hr class="divider divider-left divider-lg float-left">
+    </div>
+</div>
+<div class="row justify-content-center">
+    <div class="col-md-12">
+        <form class="contact-form" method="post" asp-controller="Librarian" asp-action="AddBook" enctype="multipart/form-data">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="outer radius-2 mb-3">
+                        <input class="inner form-control  h-100 " placeholder="نام کتاب" asp-for="Name"  type="text">
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="outer radius-2 mb-3">
+                        <input class="inner form-control  h-100 " placeholder="تعداد" asp-for="Quantity"  type="text">
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="outer radius-2 mb-3">
+                        <input class="inner form-control  h-100 " placeholder="صفحات" asp-for="PagePaper"  type="text">
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class=" radius-2 mb-3">
+                        <label>دسته بندی</label>
+                        <select asp-for="CategoryId" asp-items="ViewBag.Categories">
+                            <option value="">انتخاب کنید</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="outer radius-2 mb-3">
+                        <textarea class="radius-2 inner form-control   resize-n " asp-for="Description" placeholder="توضیحات" id="message" rows="6"></textarea>
+                    </div>
+                </div>
+                <div class="col-sm-12">
+                    <div class="outer radius-2 mb-3">
+                        <input class="inner form-control  h-100 " placeholder="آپلود تصویر کتاب" asp-for="Picture" id="name" type="file">
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="outer radius-2 d-inline-block text-center">
+                        <button type="submit" class="send inner bg-primary radius-2 d-block py-2 px-4 font-size-15 font-weight-500">
+                            ثبت اطلاعات
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </form>
+        
+    </div>
+</div>

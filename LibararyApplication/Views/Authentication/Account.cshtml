@@ -1,0 +1,94 @@
+﻿@model RegisterViewModel
+@{
+    ViewData["Title"] = "Account";
+}
+
+@if (TempData["success"] != null)
+{
+	<div class="alert alert-success alert-dismissible">
+		<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+		<strong></strong> @TempData["success"]
+	</div>
+}
+@if (TempData["error"] != null)
+{
+	<div class="alert alert-danger alert-dismissible">
+		<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+		<strong>خطا!</strong> @TempData["error"]
+	</div>
+}
+
+<div class="row mb-5 mt-6">
+	<div class="col">
+		<h6 class="font-weight-700  mb-0 text-uppercase mb-2">اطلاعات حساب کاربری</h6>
+		<hr class="divider divider-left divider-lg float-left">
+	</div>
+</div>
+<div class="row info-before position-relative">
+	<div class="col-md-12 mb-5">
+		<div class="mb-4 item">
+			<a class="radius-1 shadow-inner d-block " href="blog-single.html">
+				<div class="  p-2  ">
+					<div class="shadow radius-1">
+						<img class="img-fluid radius-1" src="~/assets/img/account.jpg" >
+					</div>
+				</div>
+			</a>
+		</div>
+	</div>
+	
+</div>
+<div class="row mb-5 mt-6">
+	<div class="col">
+		<h6 class="font-weight-700  mb-0 text-uppercase mb-2">ویرایش مشخصات</h6>
+		<hr class="divider divider-left divider-lg float-left">
+	</div>
+</div>
+<div class="row justify-content-center">
+	<div class="col-md-12">
+		<form class="contact-form" method="post" asp-controller="Authentication" asp-action="Account">
+			<div class="row">
+				<div class="col-sm-6">
+					<div>
+						<label asp-for="Name" class="text-warning">نام و نام خانوادگی</label>
+						<div class="outer radius-2 mb-3">
+							<input class="inner form-control  h-100 " asp-for="Name" type="text">
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-6">
+					<div>
+						<label asp-for="Email" class="text-warning">ایمیل</label>
+						<div class="outer radius-2 mb-3">
+							<input class="inner form-control" h-100 asp-for="Email" type="text">
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-6">
+					<div>
+						<label asp-for="Password" class="text-warning">رمز عبور جدید</label>
+						<div class="outer radius-2 mb-3">
+							<input class="inner form-control  h-100 " asp-for="Password" type="password">
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-6">
+					<div>
+						<label asp-for="ConfrimPassword" class="text-warning">تکرار رمز عبور جدید</label>
+						<div class="outer radius-2 mb-3">
+							<input class="inner form-control  h-100 " asp-for="ConfrimPassword" type="password">
+						</div>
+					</div>
+				</div>
+				<div class="col-12">
+					<div class="outer shadow radius-2 d-inline-block text-center">
+						<button type="submit" class="send bg-success inner radius-2 d-block py-2 px-4 font-size-15 font-weight-500" style="font-weight:bolder;">
+							ثبت
+						</button>
+					</div>
+				</div>
+			</div>
+		</form>
+		
+	</div>
+</div>

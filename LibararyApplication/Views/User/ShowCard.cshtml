@@ -1,0 +1,48 @@
+﻿@model ShowCardViewModel
+@{
+    ViewData["Title"] = "ShowCard";
+}
+
+
+<div class="row mb-5">
+    <div class="col">
+        <h6 class="font-weight-700  mb-0 text-uppercase mb-2"><mark>نمایش رزو</mark></h6>
+        <hr class="divider divider-left divider-lg float-left">
+    </div>
+</div>
+
+<div class="row">
+
+    <div class="col-lg-12 ">
+
+        <table class="table table-dark table-hover radius-2 shadow-inner">
+            <thead>
+                <tr>
+                    <th scope="col">کد کتاب</th>
+                    <th scope="col">نام کتاب</th>
+                    <th scope="col">تعداد</th>
+                    <th scope="col">کوچک نمایه</th>
+                    <th scope="col">حذف</th>
+                </tr>
+            </thead>
+            <tbody style="height:80%;">
+                @foreach (var item in Model.books)
+                {
+                    <tr class=""><a asp-controller="User" asp-action="ShowBook" asp-route-bookId="@item.Id">
+
+                        <td class="ml-4 mr-4">@item.Id</td>
+                        <td class="ml-4 mr-4">@item.Name</td>
+                        <td class="ml-4 mr-4">@item.Quantity</td>
+                        <td class="ml-4 mr-4"><img src="~/images/@(item.Id + ".jpg")" class="img-fluid radius-1" style="height:4rem;" /></td>
+                        <td><a asp-controller="User" asp-action="DeleteItemFromReservation" asp-route-bookId="@item.Id" asp-route-reservationId=""><i class="material-icons">delete_forever</i></a></td>
+
+                        </a>
+                    </tr>
+
+                }
+            </tbody>
+
+        </table>
+
+    </div>
+</div>

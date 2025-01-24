@@ -1,0 +1,190 @@
+﻿@model IList<LibararyApplication.Models.Reservation>
+
+@{
+    ViewData["Title"] = "Allreserved";
+}
+
+
+@if (TempData["success"] != null)
+{
+    <div class="alert alert-success alert-dismissible">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <strong></strong> @TempData["success"]
+    </div>
+}
+@if (TempData["error"] != null)
+{
+    <div class="alert alert-danger alert-dismissible">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <strong>خطا!</strong> @TempData["error"]
+    </div>
+}
+
+<div class="row mb-5">
+    <div class="col">
+        <h6 class="font-weight-700  mb-0 text-uppercase mb-2"><mark>لیست رزو های کاربران</mark></h6>
+        <hr class="divider divider-left divider-lg float-left">
+    </div>
+</div>
+
+@if (Model.Count != 0)
+{
+    int counter = 1;
+
+
+
+    <div class="row">
+
+        <div class="col-lg-12 ">
+
+            <table class="table table-dark table-hover radius-2 shadow-inner">
+                <thead>
+                    <tr>
+                        <td>#</td>
+                        <th>نام کاربر</th>
+                        <th>شماره امانت</th>
+                        <th>زمان ایجاد</th>
+                        <th>وضعیت خواندن</th>
+                        <th>وضعیت تایید</th>
+                        <th>وضعیت برگشت</th>
+                        <th>توضیحات</th>
+                        <th>نمایش</th>
+                        <th>عملیات</th>
+
+                    </tr>
+                </thead>
+                <tbody style="height:80%;">
+                    @foreach (var reservation in Model)
+                    {
+                        <tr>
+                            <td>@counter</td>
+                            <td>@reservation.User.Name</td>
+                            <td>@reservation.Id</td>
+                            <td>@reservation.CreatedAt.ToString("yyyy/MM/dd HH:mm")</td>
+
+                            <td>
+                                @if (reservation.ReadStatus == true)
+                                {
+                                    <Span class="text-success">خوانده شده</Span>
+                                }
+                                else
+                                {
+                                    <Span class="text-warning">خوانده نشده</Span>
+                                }
+
+                            </td>
+                            <td>
+                                @if (reservation.LibrarianStatus == true && reservation.ReadStatus == true)
+                                {
+                                    <Span class="text-success">تایید شده</Span>
+                                }
+                                else if (reservation.LibrarianStatus == false && reservation.ReadStatus == true)
+                                {
+                                    <Span class="text-danger">تایید نشده</Span>
+                                }
+                                else
+                                {
+
+                                }
+
+                            </td>
+                            <td>
+                                @if (reservation.ReturnStatus == true)
+                                {
+                                    <Span class="text-success">تایید</Span>
+                                }
+                                else
+                                {
+                                    <Span class="text-info">-</Span>
+                                }
+                            </td>
+                            <td>@reservation.Description</td>
+
+                            <td><a asp-controller="Librarian" asp-action="ShowCard" asp-route-reservationId="@reservation.Id"><i class="material-icons">&#xe8f4;</i></a></td>
+                            <td>
+                                @if (reservation.ReadStatus == false)
+                                {
+                                    <a class="btn btn-sm outer radius-2   font-weight-500 text-success mb-2" asp-controller="Librarian" asp-action="SubmitReserved" asp-route-reservationId="@reservation.Id">تایید</a>
+                                    <a class="btn btn-sm outer radius-2   font-weight-500 text-danger" asp-controller="Librarian" asp-action="UnsubmitReserved" asp-route-reservationId="@reservation.Id">رد سبد</a>
+                                }
+                                else if (reservation.LibrarianStatus == false)
+                                {
+                                }
+                                else if (reservation.ReturnStatus == false)
+                                {
+                                    <a class="btn btn-sm outer radius-2   font-weight-500 text-info" asp-controller="Librarian" asp-action="ReturningReservation" asp-route-reservationId="@reservation.Id">تحویل رزو</a>
+                                }
+                                else
+                                {
+                                    <Span class="text-info">-</Span>
+                                }
+                            </td>
+
+
+                        </tr>
+                        counter++;
+                    }
+                </tbody>
+
+            </table>
+
+        </div>
+    </div>
+}
+else
+{
+    <div class="d-flex justify-content-center">
+
+        <h3 class="text-danger d-block m-5">
+            !!متاسفانه رزوی یافت نشد
+        </h3>
+    </div>
+
+}
+
+
+
+
+<!-- Modal 
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content" style="direction:rtl; text-align: center">
+            <form asp-action="UnsubmitReserved" asp-controller="Librarian" method="post">
+                
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">عملیات سبد</h5>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <lable class="d-block mb-3">توضیحات</lable>
+                        <input type="text" name="description" placeholder="" style="height: 70%; width: 70%"/>
+                    </div>
+                    <div class="form-group">
+                        
+                        <input type="hidden" name="reservationId" id="reservationId" />
+                    </div>
+
+                </div>
+                <div class="modal-footer" style="direction:rtl">
+                    
+                    <button type="submit" class="btn btn-danger">ارسال</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>-->
+
+
+
+@section Scripts
+{
+    <script>
+    document.querySelectorAll('[data-target="#exampleModalCenter"]').forEach(button => {
+        button.addEventListener('click', function () {
+            var reservationId = this.getAttribute('data-id');
+            document.getElementById('reservationId').value = reservationId;
+        });
+    });
+    </script>
+}
+

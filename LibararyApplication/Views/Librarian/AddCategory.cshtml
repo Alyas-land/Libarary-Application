@@ -1,0 +1,49 @@
+﻿@model Category
+@{
+    ViewData["Title"] = "AddCategory";
+}
+
+@if (TempData["success"] != null)
+{
+    <div class="alert alert-success alert-dismissible">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <strong></strong> @TempData["success"]
+    </div>
+}
+@if (TempData["error"] != null)
+{
+    <div class="alert alert-danger alert-dismissible">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <strong>خطا!</strong> @TempData["error"]
+    </div>
+}
+
+<div class="row mb-5">
+    <div class="col">
+        <h6 class="font-weight-700  mb-0 text-uppercase mb-2"><mark>افزودن دسته بندی</mark></h6>
+        <hr class="divider divider-left divider-lg float-left">
+    </div>
+</div>
+
+<div class="row justify-content-center">
+    <div class="col-md-12">
+        <form class="contact-form" method="post" asp-controller="Librarian" asp-action="AddCategory">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="outer radius-2 mb-3">
+                        <input class="inner form-control  h-100" placeholder="نام دسته بندی" asp-for="Name" type="text">
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="outer radius-2 d-inline-block text-center">
+                        <button type="submit" class="send inner bg-primary radius-2 d-block py-2 px-4 font-size-15 font-weight-500">
+                            ثبت اطلاعات
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+    </div>
+</div>
+

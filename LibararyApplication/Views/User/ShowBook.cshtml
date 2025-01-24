@@ -1,0 +1,61 @@
+﻿@model LibararyApplication.Models.Book
+@{
+    ViewData["Title"] = "ShowBook";
+}
+
+
+@if (TempData["success"] != null)
+{
+    <div class="alert alert-success alert-dismissible">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <strong></strong> @TempData["success"]
+    </div>
+}
+@if (TempData["error"] != null)
+{
+    <div class="alert alert-danger alert-dismissible">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <strong>خطا!</strong> @TempData["error"]
+    </div>
+}
+
+<div class="row mb-5">
+    <div class="col">
+        <h6 class="font-weight-700  mb-0 text-uppercase mb-2"><mark>نمایش مشخصات کتاب</mark></h6>
+        <hr class="divider divider-left divider-lg float-left">
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="mb-4 item">
+            <a class="radius-1 shadow-inner d-block " href="blog-single.html">
+                <div class="  p-2  ">
+                    <div class="shadow radius-1">
+                        <img class="img-fluid radius-1" src="~/images/@(Model.Id + ".jpg")" alt="">
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div>
+            <h1 class="h5 font-weight-500 d-inline-block"><a href="blog-single.html">مشخصات کتاب </a></h1>
+            <span class="d-inline-block shadow-inner text-secondary radius-1 font-size-13 mb-3 mb-lg-0  px-3">@Model.Name</span>
+        </div>
+        
+        <hr class="mt-3 mb-3">
+        <h6 class="font-size-15 font-weight-600 text-warning">موجودی کتاب: <p class="m-2 text-info">@Model.Quantity</p></h6>
+        
+        <h6 class="font-size-15 font-weight-600 text-warning">دسته بندی: <p class="m-2 text-info">@Model.Category.Name</p></h6>
+        
+
+        <h6 class="font-size-15 font-weight-600 text-warning">توضیحات کتاب:</h6>
+        
+        <blockquote class="mb-2 font-size-16 mr-0 mr-lg-4 text-info m-2">
+            "@Model.Description"
+        </blockquote>
+        
+    </div>
+    
+    
+</div>
+

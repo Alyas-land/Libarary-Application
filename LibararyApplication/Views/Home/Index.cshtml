@@ -1,0 +1,129 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+@if (TempData["success"] != null)
+{
+    <div class="alert alert-success alert-dismissible">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <strong></strong> @TempData["success"]
+    </div>
+}
+@if (TempData["error"] != null)
+{
+    <div class="alert alert-danger alert-dismissible">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <strong>خطا!</strong> @TempData["error"]
+    </div>
+}
+
+
+<div class="row v-height-50 v-centred">
+    <div class="col-md-12">
+        <h1 class="font-weight-600 mb-0">
+            سامانه کتابخانه <mark>
+                هکس
+            </mark>
+        </h1>
+        @if (User.Identity.IsAuthenticated)
+        {
+            <div class="text-rotation">
+                <div class="item">
+                    <h6 class="h5 text-alt mt-1 mb-0 "> <span class=" text-rotating">خوش آمدید</span></h6>
+                </div>
+            </div>
+        }
+        else
+        {
+            <div class="text-rotation">
+                <div class="item">
+                    <h6 class="h5 text-alt mt-1 mb-0 "> <span class=" text-rotating">لطفا برای دسترسی به امکانات سامانه وارد حساب کاربری خود شوید.</span></h6>
+                </div>
+            </div>
+            <ul class="list-inline  mb-0 mt-4">
+                <li class="list-inline-item mx-0 outer radius-2 mb-2 mb-lg-0">
+                    <a class="inner btn" asp-controller="Authentication" asp-action="Login">
+                        ورود به حساب کاربری
+                    </a>
+                </li>
+            </ul>
+        }
+        
+    </div>
+</div>
+<div class="row ">
+    <div class="col-md-12 mb-6">
+        <hr class="divider divider-lg divider-center ">
+    </div>
+    <div class="col-md-6 text-left mb-2 mb-lg-0">
+        <a class="float-left" href="#">
+            <div class="media  align-items-center">
+                <div class="outer radius-2 mr-3">
+                    <div class="ui-icon ui-icon-md inner ">
+                        <div class="ui-icon-inner">
+                            <svg version="1.1" class="max-width-1-3 svg-icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 517 517" enable-background="new 0 0 517 517;" xml:space="preserve">
+                            <g>
+                            <g>
+                            <path d="M514.5,258.5c0-141.4-114.6-256-256-256s-256,114.6-256,256s114.6,256,256,256S514.5,399.9,514.5,258.5z
+                                                      M28.1,258.5c0-127,103.4-230.4,230.4-230.4s230.4,103.4,230.4,230.4S385.5,488.9,258.5,488.9S28.1,385.5,28.1,258.5z"></path>
+                                                </g>
+                                             </g>
+                            <g>
+                            <g>
+                            <path d="M267.5,344.4l128-128c5-5,5-13.1,0-18.1s-13.1-5-18.1,0l-119,118.9l-118.9-119c-5-5-13.1-5-18.1,0
+                                                      c-2.5,2.5-3.8,5.8-3.8,9.1s1.2,6.6,3.7,9.1l128,128C254.4,349.4,262.5,349.4,267.5,344.4z"></path>
+                                                </g>
+                                             </g>
+                                          </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </div>
+    <div class="col-md-6 text-left mb-2 mb-lg-0">
+        <a class="float-md-right" href="#">
+            <div class="media  align-items-center">
+                <div class="outer radius-2  mr-3">
+                    <div class="ui-icon ui-icon-md inner ">
+                        <div class="ui-icon-inner">
+                            <svg version="1.1" class="max-width-1-3 svg-icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 518 518" enable-background="new 0 0 518 518;" xml:space="preserve">
+                            <g>
+                            <g>
+                            <rect x="169.4" y="438.2" width="179.2" height="25.6"></rect>
+                                                </g>
+                                             </g>
+                            <g>
+                            <g>
+                            <rect x="169.4" y="387" width="179.2" height="25.6"></rect>
+                                                </g>
+                                             </g>
+                            <g>
+                            <g>
+                            <rect x="169.4" y="335.8" width="179.2" height="25.6"></rect>
+                                                </g>
+                                             </g>
+                            <g>
+                            <g>
+                            <path d="M463.8,131h-64V3H118.2v128h-64C26,131,3,154,3,182.2v179.2c0,28.2,23,51.2,51.2,51.2h64V515h281.6V412.6h64
+                                                      c28.2,0,51.2-23,51.2-51.2V182.2C515,154,492,131,463.8,131z M143.8,28.6h230.4V131H143.8V28.6z M374.2,489.4H143.8V284.6h230.4
+                                                      V489.4z M489.4,361.4c0,14.1-11.5,25.6-25.6,25.6h-64V284.6h25.6c7.1,0,12.8-5.7,12.8-12.8c0-7.1-5.7-12.8-12.8-12.8H92.6
+                                                      c-7.1,0-12.8,5.7-12.8,12.8c0,7.1,5.7,12.8,12.8,12.8h25.6V387h-64c-14.1,0-25.6-11.5-25.6-25.6V182.2c0-14.1,11.5-25.6,25.6-25.6
+                                                      h409.6c14.1,0,25.6,11.5,25.6,25.6V361.4z"></path>
+                                                </g>
+                                             </g>
+                            <g>
+                            <g>
+                            <path d="M425.4,182.2H323c-7.1,0-12.8,5.7-12.8,12.8s5.7,12.8,12.8,12.8h102.4c7.1,0,12.8-5.7,12.8-12.8
+                                                      S432.5,182.2,425.4,182.2z"></path>
+                                                </g>
+                                             </g>
+                                          </svg>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </a>
+    </div>
+</div>

@@ -1,0 +1,42 @@
+﻿@model AddBookViewModel
+@{
+    ViewData["Title"] = "AddBook";
+}
+
+<div class="container" style="direction:ltr">
+    <div class="row">
+        <h3 class="mt-5 text-center">افرودن کتاب</h3>
+        <div class="d-flex justify-content-center">
+            <form class="text-end m-3" asp-controller="User" asp-action="AddBook" method="post" enctype="multipart/form-data">
+                <div class="m-3">
+                    <label asp-for="Name" class="form-label">نام کتاب</label>
+                    <input type="text" class="form-control" asp-for="Name">
+                    <span asp-validation-for="Name"></span>
+                </div>
+
+                <div class="m-3">
+                    <label asp-for="Description" class="form-label">توضیحات</label>
+                    <textarea type="text" class="form-control" asp-for="Description"></textarea>
+                    <span asp-validation-for="Description"></span>
+                </div>
+
+                <div class="m-3">
+                    <div class="m-3">
+                        <label asp-for="Picture" class="form-label">انتخاب تصویر کتاب</label>
+                        <input type="file" class="form-control" asp-for="Picture"></input>
+                        <span asp-validation-for="Picture"></span>
+                    </div>
+                </div>
+
+                <center>
+                    <div class="m-3">
+                        <button type="submit" class="btn btn-primary text-center" style="width:max-content">افزودن</button>
+                    </div>
+                </center>
+            </form>
+        </div>
+
+    </div>
+</div>
+
+

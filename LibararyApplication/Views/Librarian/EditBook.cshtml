@@ -1,0 +1,81 @@
+﻿@model EditBookViewModel
+@{
+    ViewData["Title"] = "EditBook";
+}
+
+@if (TempData["success"] != null)
+{
+    <div class="alert alert-success alert-dismissible">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <strong></strong> @TempData["success"]
+    </div>
+}
+@if (TempData["error"] != null)
+{
+    <div class="alert alert-danger alert-dismissible">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <strong>خطا!</strong> @TempData["error"]
+    </div>
+}
+
+
+
+<div class="row mb-5">
+    <div class="col">
+        <h6 class="font-weight-700  mb-0 text-uppercase mb-2"><mark>ویرایش کتاب</mark></h6>
+        <hr class="divider divider-left divider-lg float-left">
+    </div>
+</div>
+
+<div class="row justify-content-center">
+    <form class="form p-5 radius-1 " method="post" asp-controller="Librarian" asp-action="EditBook" enctype="multipart/form-data">
+        <div>
+            <h3 class="font-weight-600 mb-5 text-center">اطلاعات را وارد کنید</h3>
+        </div>
+
+        <div>
+            
+            <div class="outer radius-2 mb-3">
+                <input class="inner form-control text-center h-100 " asp-for="Id" type="hidden">
+                <span asp-validation-for="Name"></span>
+            </div>
+        </div>
+
+        <div>
+            <label asp-for="Name">نام کتاب</label>
+            <div class="outer radius-2 mb-3">
+                <input class="inner form-control text-center h-100 " asp-for="Name" type="text">
+                <span asp-validation-for="Name"></span>
+            </div>
+        </div>
+        <div>
+            <label asp-for="Description">توضیحات</label>
+            <div class="outer radius-2 mb-3">
+                <input class="inner form-control text-center h-100 " asp-for="Description" type="text">
+                <span asp-validation-for="Description"></span>
+            </div>
+        </div>
+        <div>
+            <label asp-for="Quantity">تعداد</label>
+            <div class="outer radius-2 mb-3">
+                <input class="inner form-control text-center h-100 " asp-for="Quantity" type="text">
+                <span asp-validation-for="Quantity"></span>
+            </div>
+        </div>
+        <div>
+            <label asp-for="Picture">اپلود تصویر</label>
+            <div class="outer radius-2 mb-3">
+                <input class="inner form-control text-center h-100 " asp-for="Picture" type="file">
+                <span asp-validation-for="Picture"></span>
+            </div>
+        </div>
+
+        
+        <div class="row justify-content-center">
+            <div class="outer radius-2 mt-4 text-center" style="width: max-content;">
+                <button type="submit" class="btn btn-outline-dark shadow text-light text-center">ثبت اطلاعات</button>
+            </div>
+        </div>
+    </form>
+        
+</div>

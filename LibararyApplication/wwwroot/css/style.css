@@ -1,0 +1,53 @@
+﻿@font-face {
+  font-family: "estedadv";
+  src: url("../fonts/estedad-fd-var.woff2") format("woff2-variations"), url("../fonts/estedad/fd/estedad-fd-var.woff2") format("woff2");
+  font-weight: 100 900;
+  font-display: fallback;
+}
+@font-face {
+  font-family: estedad;
+  src: url("../fonts/estedad-FD-Regular.woff2") format("woff2");
+}
+@font-face {
+  font-family: estedad;
+  src: url("../fonts/estedad-FD-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-variation-settings: "wght" 700;
+}
+
+
+* {
+    box-sizing: border-box;
+    font-family: 'estedad';
+    font-weight: bold;
+}
+
+
+
+
+body {
+  font-family: var(--body-font);
+  font-size: 16px;
+  line-height: 150%;
+  font-weight: 400;
+  color: rgb(var(--n1));
+  background: rgb(var(--n0));
+  min-height: 100vh;
+  position: relative;
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+#flashMessage {
+    opacity: 1; 
+    animation: fadeOut 10s forwards; 
+}
