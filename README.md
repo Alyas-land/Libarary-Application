@@ -76,5 +76,5 @@ This project is licensed under the MIT License.
 
 ## Contact
 For questions or suggestions, feel free to contact me:
-   - Email: a.mashayekhi90@example.com
+   - Email: a.mashayekhi90@gmail.com
    - GitHub: YourUsername + RepositoryName
